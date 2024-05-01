@@ -1,5 +1,5 @@
 # KubeToy
-## v1.0.0 (CHC)
+## v1.0.0 (CHC2)
 
 A simple Node.js application that deploys to IBM Cloud Private.  It is used to help 
 explore the functionality of Kubernetes.  This toy application has a user interface 
