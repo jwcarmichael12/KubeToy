@@ -77,7 +77,7 @@ jobs:
         run: |
           git config --global user.name "jwcarmichael12"
           git config --global user.email "james.carmichael@hcl.com"
-          git commit -S -am "feat: Update deployment image tag to ${{ steps.meta.outputs.tags }}"
+          git commit -am "feat: Update deployment image tag to ${{ steps.meta.outputs.tags }}"
           git push
             
             
