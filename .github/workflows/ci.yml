@@ -8,6 +8,9 @@ on:
       - 'v*'
     paths:
       - app/**
+      
+env:
+  IMAGE: "jwcarmichael/kubetoy"
 
 jobs:
   docker:
@@ -20,7 +23,7 @@ jobs:
         uses: docker/metadata-action@v5
         with:
           images: |
-            jwcarmichael/kubetoy
+            ${{ env.IMAGE }}
           tags: |
             type=ref,event=branch
             type=ref,event=pr
@@ -57,7 +60,7 @@ jobs:
         uses: docker/metadata-action@v5
         with:
           images: |
-            jwcarmichael/kubetoy
+            ${{ env.IMAGE }}
           tags: |
             type=ref,event=branch
             type=ref,event=pr
@@ -66,12 +69,12 @@ jobs:
       - name: "Update Deployment Image Tag"
         working-directory: "deployment/all-in-one"
         run: |
-          kustomize edit set image jwcarmichael/kubetoy=jwcarmichael/kubetoy:${{ steps.meta.outputs.tags }}
+          kustomize edit set image ${{ env.IMAGE }}=${{ env.IMAGE }}:${{ steps.meta.outputs.tags }}
       - name: "Commit Updated Image Tag To GitHub Rep"
         run: |
           git config --global user.name="jwcarmichael12"
           git config --global user.email="james.carmichael@hcl.com"
-          git commit -am "feat: Update deployment image tag to $ {{ steps.meta.outputs.tags }}
+          git commit -am "feat: Update deployment image tag to ${{ env.IMAGE }}:${{ steps.meta.outputs.tags }}"
           git push
             
             
