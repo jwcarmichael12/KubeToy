@@ -69,7 +69,7 @@ jobs:
       - name: "Update Deployment Image Tag"
         working-directory: "deployment/all-in-one"
         run: |
-          kustomize edit set image ${{ env.IMAGE }}=${{ env.IMAGE }}:${{ steps.meta.outputs.tags }}
+          kustomize edit set image ${{ env.IMAGE }}:${{ steps.meta.outputs.tags }}
       - name: "Commit Updated Image Tag To GitHub Rep"
         run: |
           git config --global user.name "jwcarmichael12"
