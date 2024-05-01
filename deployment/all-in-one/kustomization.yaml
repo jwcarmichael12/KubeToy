@@ -4,4 +4,5 @@ resources:
 - ./kubetoy-all-in-one.yaml
 images:
 - name: jwcarmichael/kubetoy
-  newTag: '2.0'
+  newName: jwcarmichael/kubetoy
+  newTag: jwcarmichael/kubetoy:master
