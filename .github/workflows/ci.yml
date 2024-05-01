@@ -55,12 +55,12 @@ jobs:
       - name: "Update Deployment Image Tag"
         working-directory: "deployment/all-in-one"
         run: |
-          kustomize edit set image jwcarmichael/kubetoy=docker.io/jwcarmichael/kubetoy:${{ steps.meta.outputs.tags }}
+          kustomize edit set image jwcarmichael/kubetoy=jwcarmichael/kubetoy:${{ docker.steps.meta.outputs.tags }}
       - name: "Commit Updated Image Tag To GitHub Rep"
         run: |
           git config --global user.name="jwcarmichael12"
           git config --global user.email="james.carmichael@hcl.com"
-          git commit -am "feat: Update deployment image tag to $ {{ steps.meta.outputs.tags }}
+          git commit -am "feat: Update deployment image tag to $ {{ docker.steps.meta.outputs.tags }}
           git push
             
             
