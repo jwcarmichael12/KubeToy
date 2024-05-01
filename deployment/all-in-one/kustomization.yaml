@@ -3,5 +3,5 @@ kind: Kustomization
 resources:
 - ./kubetoy-all-in-one.yaml
 images:
-- name: tpneal/kubetoy
+- name: jwcarmichael/kubetoy
   newTag: '2.0'
