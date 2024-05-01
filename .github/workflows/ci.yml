@@ -20,7 +20,7 @@ jobs:
         uses: docker/metadata-action@v5
         with:
           images: |
-            jwcarmichael12/kubetoy
+            jwcarmichael/kubetoy
           tags: |
             type=ref,event=branch
             type=ref,event=pr
