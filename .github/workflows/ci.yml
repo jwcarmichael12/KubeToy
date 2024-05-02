@@ -89,7 +89,7 @@ jobs:
           git config --global user.email "james.carmichael@hcl.com"
           git commit -am "feat: Update deployment image tag to ${{ env.IMAGE }}@${{ needs.docker.outputs.kubetoy_image_digest }}"
           git push
-      - #name: "Push changes"
+      #- name: "Push changes"
         #uses: ad-m/github-push-action@master
         #with:
         #  github_token: ${{ secrets.GH_PAT }}
