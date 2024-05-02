@@ -22,7 +22,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          github_token: $${{ secrets.PAT }}
+          github_token: $${{ secrets.GITHUB_PAT }}
       - name: Docker meta
         id: meta
         uses: docker/metadata-action@v5
