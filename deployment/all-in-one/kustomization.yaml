@@ -5,3 +5,5 @@ resources:
 images:
 - name: jwcarmichael/kubetoy
   newTag: master
+- name: sha256
+  newTag: 1a6f558643536c176f23ee5fa961ebaae7fe01fcbc46620877596f36072a7883
