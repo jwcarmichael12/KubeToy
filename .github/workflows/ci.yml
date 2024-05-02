@@ -75,7 +75,7 @@ jobs:
       - name: "Update Deployment Image Tag"
         working-directory: "deployment/all-in-one"
         run: |
-          kustomize edit set image ${{ docker.steps.outputs.kubetoy_image_digest }}
+          kustomize edit set image ${{ needs.docker.steps.outputs.kubetoy_image_digest }}
       - name: "Commit Updated Image Tag To GitHub Repository"
         run: |
           git config --global user.name "jwcarmichael12"
