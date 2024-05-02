@@ -19,7 +19,7 @@ jobs:
   docker:
     runs-on: ubuntu-latest
     outputs:
-      kubetoy_image_digest: ${{ steps.set-digest.outputs.digest }}
+      kubetoy_image_digest: ${{ steps.set-digest.outputs.digestvalue }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -54,7 +54,7 @@ jobs:
           # Otherwise, push to a registry.
           outputs: ${{ github.event_name == 'pull_request' && 'type=cacheonly' || 'type=registry,push=true' }}
       - name: set-digest
-        run: echo "digest=${{ steps.push.outputs.digest }}" >> "$GITHUB_OUTPUT"
+        run: echo "digestvalue=${{ steps.push.outputs.digest }}" >> "$GITHUB_OUTPUT"
 
   update-kustomization-yaml:
     name: "Update Kustomization.yaml File"
@@ -77,12 +77,12 @@ jobs:
       - name: "Update Deployment Image Tag"
         working-directory: "deployment/all-in-one"
         run: |
-          kustomize edit set image ${{ needs.docker.steps.outputs.kubetoy_image_digest }}
+          kustomize edit set image ${{ needs.docker.outputs.kubetoy_image_digest }}
       - name: "Commit Updated Image Tag To GitHub Repository"
         run: |
           git config --global user.name "jwcarmichael12"
           git config --global user.email "james.carmichael@hcl.com"
-          git commit -am "feat: Update deployment image tag to ${{ needs.docker.steps.outputs.kubetoy_image_digest }}"
+          git commit -am "feat: Update deployment image tag to ${{ needs.docker.outputs.kubetoy_image_digest }}"
       - name: "Push changes"
         uses: ad-m/github-push-action@master
         with:
