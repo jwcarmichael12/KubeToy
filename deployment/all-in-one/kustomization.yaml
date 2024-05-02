@@ -3,5 +3,5 @@ kind: Kustomization
 resources:
 - ./kubetoy-all-in-one.yaml
 images:
-- digest: sha256:91c05f9a2b09fe83bed9949fdcc815a69ce5479741e2391103430a0e13c7f570
+- digest: sha256:db65cf4da5cea091a0099ed094c90954c0ad5521577e296ec13751022b0f5aef
   name: jwcarmichael/kubetoy
