@@ -19,7 +19,7 @@ jobs:
   docker:
     runs-on: ubuntu-latest
     outputs:
-      kubetoy_image_digest: ${{ steps.set-digest.outputs.digestvalue }}
+      kubetoy_image_digest: ${{ steps.setdigest.outputs.digestvalue }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -54,6 +54,7 @@ jobs:
           # Otherwise, push to a registry.
           outputs: ${{ github.event_name == 'pull_request' && 'type=cacheonly' || 'type=registry,push=true' }}
       - name: set-digest
+        id: setdigest
         run: echo "digestvalue=${{ steps.push.outputs.digest }}" >> "$GITHUB_OUTPUT"
 
   update-kustomization-yaml:
