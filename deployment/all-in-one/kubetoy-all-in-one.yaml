@@ -95,18 +95,3 @@ metadata:
 type: Opaque
 data:
   toy-secret.txt: U2hoLi4uIFRoaXMgaXMgYSBzZWNyZXQu
----
-kind: Route
-apiVersion: route.openshift.io/v1
-metadata:
-  name: kubetoy
-  labels:
-    app: kubetoy-app
-spec:
-  to:
-    kind: Service
-    name: kubetoy-service
-    weight: 100
-  port:
-    targetPort: http
-  wildcardPolicy: None
