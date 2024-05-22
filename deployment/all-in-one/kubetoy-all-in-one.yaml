@@ -96,7 +96,6 @@ type: Opaque
 data:
   toy-secret.txt: U2hoLi4uIFRoaXMgaXMgYSBzZWNyZXQu
 ---
-{{- if (.Capabilities.APIVersions.Has "route.openshift.io/v1") }}
 kind: Route
 apiVersion: route.openshift.io/v1
 metadata:
@@ -111,4 +110,3 @@ spec:
   port:
     targetPort: http
   wildcardPolicy: None
-{{- end }}
