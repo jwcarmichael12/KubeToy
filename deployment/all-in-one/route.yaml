@@ -1,0 +1,15 @@
+{{- if (.Capabilities.APIVersions.Has "route.openshift.io/v1") }}kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: kubetoy
+  labels:
+    app: kubetoy-app
+spec:
+  to:
+    kind: Service
+    name: kubetoy-service
+    weight: 100
+  port:
+    targetPort: http
+  wildcardPolicy: None
+  {{- end }}
