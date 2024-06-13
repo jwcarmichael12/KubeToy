@@ -1,4 +1,5 @@
-{{- if (.Capabilities.APIVersions.Has "route.openshift.io/v1") }}kind: Route
+{{- if (.Capabilities.APIVersions.Has "route.openshift.io/v1") }}
+kind: Route
 apiVersion: route.openshift.io/v1
 metadata:
   name: kubetoy
