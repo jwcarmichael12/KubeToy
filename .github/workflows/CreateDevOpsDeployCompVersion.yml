@@ -17,7 +17,7 @@ jobs:
 
     steps:
     = name: Create artifact to add to component
-      id: artifact
+      id: create-artifact
       run: date > /tmp/artifacts/date.txt
     - name: Set short_commit_id
       id: vars
