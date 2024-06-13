@@ -16,7 +16,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    = name: Create artifact to add to component
+    - name: Create artifacts to add to component
+      id: create-artifacts
       run: date > /tmp/artifacts/date.txt
     - name: Set short_commit_id
       id: vars
