@@ -16,6 +16,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    = name: Create artifact to add to component
+      id: artifact
+      run: date > /tmp/artifacts/date.txt
     - name: Set short_commit_id
       id: vars
       run: echo "short_commit_id=$(echo ${{ github.event.head_commit.id }} | cut -c1-7)" >> "$GITHUB_ENV"
@@ -26,6 +29,7 @@ jobs:
         versionname: '${{ env.short_commit_id }}:${{ github.event.head_commit.message }}'
         description: 'Commit ID: ${{ github.event.head_commit.id }} Repository URL: ${{ github.repositoryUrl }}'
         link: '${{ github.server_url }}/${{ github.repository }}/commit/${{ github.event.head_commit.id }}'
+        base: /tmp/artifacts
         hostname: '35.245.205.184'
         port: '8443'
         authToken: '${{ secrets.DEVOPS_DEPLOY_AUTHTOKEN }}'
