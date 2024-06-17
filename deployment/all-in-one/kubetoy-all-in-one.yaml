@@ -8,7 +8,7 @@ spec:
     selector:
       matchLabels:
         app: kubetoy
-    replicas: 7
+    replicas: 8
     template:
       metadata:
         labels:
