@@ -6,7 +6,7 @@ jobs:
     name: A job to test udclient support
     steps:
       - uses: actions/checkout@v4
-      - uses: jwcarmichael12/test-composite-action@v16
+      - uses: jwcarmichael12/test-composite-action@v17
         with:
           component: 'Kubetoy'
           versionname: '${{ env.short_commit_id }}:${{ github.event.head_commit.message }}'
