@@ -6,4 +6,4 @@ jobs:
     name: A job to test udclient support
     steps:
       - uses: actions/checkout@v4
-      - uses: jwcarmichael12/test-composite-action@v13
+      - uses: jwcarmichael12/test-composite-action@v14
