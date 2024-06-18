@@ -5,8 +5,13 @@ jobs:
     runs-on: ubuntu-latest
     name: A job to test udclient support
     steps:
-      - uses: actions/checkout@v4
-      - uses: jwcarmichael12/test-composite-action@v17
+      - name: Create artifacts to add to component
+        id: create-artifacts
+        run: mkdir /tmp/artifacts && date > /tmp/artifacts/date.txt
+      - name: Set short_commit_id
+        id: vars
+        run: echo "short_commit_id=$(echo ${{ github.event.head_commit.id }} | cut -c1-7)" >> "$GITHUB_ENV"
+      - uses: jwcarmichael12/test-composite-action@main
         with:
           component: 'Kubetoy'
           versionname: '${{ env.short_commit_id }}:${{ github.event.head_commit.message }}'
