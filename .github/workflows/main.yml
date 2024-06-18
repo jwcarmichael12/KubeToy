@@ -6,4 +6,13 @@ jobs:
     name: A job to test udclient support
     steps:
       - uses: actions/checkout@v4
-      - uses: jwcarmichael12/test-composite-action@v15
+      - uses: jwcarmichael12/test-composite-action@v16
+        with:
+          component: 'Kubetoy'
+          versionname: '${{ env.short_commit_id }}:${{ github.event.head_commit.message }}'
+          description: 'Commit ID: ${{ github.event.head_commit.id }} Repository URL: ${{ github.repositoryUrl }}'
+          link: '${{ github.server_url }}/${{ github.repository }}/commit/${{ github.event.head_commit.id }}'
+          base: /tmp/artifacts
+          hostname: '35.245.205.184'
+          port: '8443'
+          authToken: '${{ secrets.DEVOPS_DEPLOY_AUTHTOKEN }}'
