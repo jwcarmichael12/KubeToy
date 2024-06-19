@@ -22,7 +22,7 @@ jobs:
           component: 'Kubetoy'
           versionname: '${{ env.short_commit_id }}:${{ github.event.head_commit.message }}'
           description: 'Commit ID: ${{ github.event.head_commit.id }} Repository URL: ${{ github.repositoryUrl }}'
-          #linkName: 'James'
+          linkName: 'James'
           link: '${{ github.server_url }}/${{ github.repository }}/commit/${{ github.event.head_commit.id }}'
           base: /tmp/artifacts
           urlType: 'https:'
