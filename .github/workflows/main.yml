@@ -25,6 +25,7 @@ jobs:
           linkName: 'James'
           link: '${{ github.server_url }}/${{ github.repository }}/commit/${{ github.event.head_commit.id }}'
           base: /tmp/artifacts
+          offset: base ball/schedule
           hostname: '35.245.205.184'
           port: '8443'
           authToken: '${{ secrets.DEVOPS_DEPLOY_AUTHTOKEN }}'
