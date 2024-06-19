@@ -1,4 +1,4 @@
-name: Test udclient support
+name: Test udclient support (James)
 
 on:
   push:
