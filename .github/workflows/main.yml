@@ -27,7 +27,7 @@ jobs:
           base: /tmp/artifacts
           offset: baseball/schedule
           versionProperties: |-
-            Prop1:Test:false
+            :Test:false
             Prop2:Test2:true
           hostname: '35.245.205.184'
           port: '8443'
