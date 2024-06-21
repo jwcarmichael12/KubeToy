@@ -34,3 +34,5 @@ jobs:
           hostname: '35.245.205.184'
           port: '8443'
           authToken: '${{ secrets.DEVOPS_DEPLOY_AUTHTOKEN }}'
+        env:
+           UC_TLS_VERIFY_CERTS=true
