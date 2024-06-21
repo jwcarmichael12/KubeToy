@@ -30,7 +30,7 @@ jobs:
             Prop1:${{ env.short_commit_id }}:false
             Prop2:${{ github.event.head_commit.message }}:false
             Prop3:TestSecure:false
-            Prop4:TestSecure:true
+            Prop4:TestSecure:false
           hostname: '35.245.205.184'
           port: '8443'
           authToken: '${{ secrets.DEVOPS_DEPLOY_AUTHTOKEN }}'
