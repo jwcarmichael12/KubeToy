@@ -27,8 +27,8 @@ jobs:
           base: /tmp/artifacts
           offset: baseball/schedule
           versionProperties: |-
-            Prop1:Test:false
-            Prop2:Test2:true
+            Prop1:${{ env.short_commit_id }}:false
+            Prop2:${{ github.event.head_commit.message }}:false
           hostname: '35.245.205.184'
           port: '8443'
           authToken: '${{ secrets.DEVOPS_DEPLOY_AUTHTOKEN }}'
