@@ -33,4 +33,6 @@ jobs:
             Prop4:TestSecure:false
           hostname: '35.245.205.184'
           port: '8443'
-          authToken: '${{ secrets.DEVOPS_DEPLOY_AUTHTOKEN }}'
+          #authToken: '${{ secrets.DEVOPS_DEPLOY_AUTHTOKEN }}'
+          username: 'admin'
+          password: 'admin'
