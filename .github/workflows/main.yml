@@ -19,7 +19,9 @@ jobs:
         run: echo "short_commit_id=$(echo ${{ github.event.head_commit.id }} | cut -c1-7)" >> "$GITHUB_ENV"
       - name: Set optional global flags for udclient command
         id: set-optional-global-flags
-        run: echo "UC_TLS_VERIFY_CERTS=false" >> "$GITHUB_ENV"
+        run: |
+          echo "UC_TLS_VERIFY_CERTS=false" >> "$GITHUB_ENV" && echo "DS_USERNAME=admin" >> "$GITHUB_ENV" \
+          echo "DS_PASSWORD='${{ secrets.DEVOPS_DEPLOY_ADMIN_PASSWORD }}'
       - uses: jwcarmichael12/test-composite-action@main
         with:
           component: 'Kubetoy'
@@ -36,4 +38,4 @@ jobs:
             Prop4:TestSecure:false
           hostname: '35.245.205.184'
           port: '8443'
-          authToken: '${{ secrets.DEVOPS_DEPLOY_AUTHTOKEN }}'
+          #authToken: '${{ secrets.DEVOPS_DEPLOY_AUTHTOKEN }}'
