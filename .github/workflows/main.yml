@@ -20,7 +20,7 @@ jobs:
       - name: Set optional global flags for udclient command
         id: set-optional-global-flags
         run: echo "UC_TLS_VERIFY_CERTS=false" >> "$GITHUB_ENV"
-      - uses: HCL-TECH-SOFTWARE/devops-deploy-createcomponentversion-action@v2devel
+      - uses: jwcarmichael12/test-composite-action@main
         with:
           component: 'Kubetoy'
           versionname: '${{ env.short_commit_id }}:${{ github.event.head_commit.message }}'
