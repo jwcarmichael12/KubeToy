@@ -20,13 +20,13 @@ jobs:
       - name: Set optional global flags for udclient command
         id: set-optional-global-flags
         run: |
-          echo "UC_TLS_VERIFY_CERTS=false" >> "$GITHUB_ENV" && echo "DS_USERNAME=admin" >> "$GITHUB_ENV" && echo "DS_PASSWORD=${{ secrets.DEVOPS_DEPLOY_ADMIN_PASSWORD }}" >> "$GITHUB_ENV"
+          echo "UC_TLS_VERIFY_CERTS=false" >> "$GITHUB_ENV"
       - uses: HCL-TECH-SOFTWARE/devops-deploy-createcomponentversion-action@v2devel
         with:
           component: 'Kubetoy'
           versionname: '${{ env.short_commit_id }}:${{ github.event.head_commit.message }}'
           description: 'Commit ID: ${{ github.event.head_commit.id }} Repository URL: ${{ github.repositoryUrl }}'
-          #linkName: 'James'
+          linkName: 'Test username:password'
           link: '${{ github.server_url }}/${{ github.repository }}/commit/${{ github.event.head_commit.id }}'
           base: /tmp/artifacts
           offset: baseball/schedule
@@ -37,4 +37,6 @@ jobs:
             Prop4:TestSecure:false
           hostname: '35.245.205.184'
           port: '8443'
-          authToken: '${{ secrets.DEVOPS_DEPLOY_AUTHTOKEN }}'
+          #authToken: '${{ secrets.DEVOPS_DEPLOY_AUTHTOKEN }}'
+          username: 'admin'
+          password: '${{ secrets.DEVOPS_DEPLOY_ADMIN_PASSWORD }}'
