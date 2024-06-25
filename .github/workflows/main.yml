@@ -13,7 +13,7 @@ jobs:
     steps:
       - name: Create artifacts to add to component
         id: create-artifacts
-        run: mkdir /tmp/artifacts && date > /tmp/artifacts/date.txt &&  ls -la > filelisting.txt
+        run: mkdir /tmp/artifacts && date > /tmp/artifacts/date.txt &&  ls -la > /tmp/artifacts/filelisting.txt
       - name: Set short_commit_id
         id: vars
         run: echo "short_commit_id=$(echo ${{ github.event.head_commit.id }} | cut -c1-7)" >> "$GITHUB_ENV"
