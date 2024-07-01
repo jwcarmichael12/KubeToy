@@ -1,4 +1,4 @@
-name: Test udclient support (Warmup)
+name: Test udclient support (Real)
 
 on:
   push:
