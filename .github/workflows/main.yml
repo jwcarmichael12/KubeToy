@@ -21,7 +21,7 @@ jobs:
         id: set-optional-global-flags
         run: |
           echo "UC_TLS_VERIFY_CERTS=false" >> "$GITHUB_ENV"
-      - uses: HCL-TECH-SOFTWARE/devops-deploy-createcomponentversion-action@v2devel
+      - uses: HCL-TECH-SOFTWARE/devops-deploy-createcomponentversion-action@v2.0
         with:
           component: 'Kubetoy'
           versionname: '${{ env.short_commit_id }}:${{ github.event.head_commit.message }}'
