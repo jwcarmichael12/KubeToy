@@ -33,7 +33,7 @@ jobs:
           link: '${{ github.server_url }}/${{ github.repository }}/commit/${{ github.event.head_commit.id }}'
           base: /tmp/artifacts
           offset: baseball/schedule
-          include: '/tmp/artifacts /tmp/james'
+          include: '/tmp/artifacts/*date*,/tmp/james/*file*'
           versionProperties: |-
             Prop1:${{ env.short_commit_id }}:false
             Prop2:${{ github.event.head_commit.message }}:false
