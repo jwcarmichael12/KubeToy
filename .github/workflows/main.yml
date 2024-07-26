@@ -14,6 +14,9 @@ jobs:
       - name: Create artifacts to add to component
         id: create-artifacts
         run: mkdir /tmp/artifacts && date > /tmp/artifacts/date.txt &&  ls -la > /tmp/artifacts/filelisting.txt
+      - name: Create artifacts to add to component2
+        id: create-artifacts2
+        run: mkdir /tmp/james && date > /tmp/James/jwcdate.txt &&  ls -la > /tmp/james/jwcfilelisting.txt
       - name: Set short_commit_id
         id: vars
         run: echo "short_commit_id=$(echo ${{ github.event.head_commit.id }} | cut -c1-7)" >> "$GITHUB_ENV"
@@ -30,6 +33,7 @@ jobs:
           link: '${{ github.server_url }}/${{ github.repository }}/commit/${{ github.event.head_commit.id }}'
           base: /tmp/artifacts
           offset: baseball/schedule
+          include: '/tmp/artifacts /tmp/james'
           versionProperties: |-
             Prop1:${{ env.short_commit_id }}:false
             Prop2:${{ github.event.head_commit.message }}:false
