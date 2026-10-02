@@ -13,6 +13,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Check connectivity
+      run: |
+        echo "Runner IP: $(curl -s https://api.ipify.org)"
+        curl -sv --connect-timeout 10 -o /dev/null https://tneal.deploydevvpc1.us-east.containers.appdomain.cloud/tools/udclient.zip
     - name: Create artifacts to add to component
       id: create-artifacts
       run: mkdir /tmp/artifacts && date > /tmp/artifacts/date.txt && date > /tmp/artifacts/date.xyz && chmod a+x /tmp/artifacts/date.xyz && ls -lrt /tmp/artifacts 
